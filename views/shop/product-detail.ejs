@@ -1,0 +1,18 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main class="centered">
+        <h1><%= product.firstname %></h1>
+        <h2><%= product.lastname %></h2>
+        <hr>
+        <div class="image">
+            <img src="<%= product.imageUrl %>" alt="<%= product.phonenumber %>">
+        </div>
+
+        <p><%= product.currentlocation %></p>
+        <p><%= product.phonenumber %></p>
+        <%- include('../includes/add-to-cart.ejs') %>
+    </main>
+    <%- include('../includes/end.ejs') %>

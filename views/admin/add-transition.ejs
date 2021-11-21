@@ -1,0 +1,65 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/addtransition"
+            method="POST">
+            <div class="form-control">
+                <label for="stratlocation">stratlocation</label>
+                <input type="text" name="stratlocation" id="stratlocation"
+                    value="<% if (editing) { %><%= product.stratlocation %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="endlocation">endlocation</label>
+                <input type="text" name="endlocation" id="endlocation"
+                    value="<% if (editing) { %><%= product.endlocation %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="city">city</label>
+                <input type="text" name="city" id="city"
+                    value="<% if (editing) { %><%= product.city %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="isdone">isdone</label>
+                <input type="text" name="isdone" id="isdone" step="0.01"
+                    value="<% if (editing) { %><%= product.price %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="price">price</label>
+                <input type="number" name="price" id="price" step="0.01"
+                    value="<% if (editing) { %><%= product.price %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="satisfynumber">satisfynumber</label>
+                <input type="number" name="satisfynumber" id="satisfynumber" step="0.01"
+                    value="<% if (editing) { %><%= product.satisfynumber %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="tripdurationtime">tripdurationtime</label>
+                <input type="number" name="tripdurationtime" id="tripdurationtime" step="0.01"
+                    value="<% if (editing) { %><%= product.tripdurationtime %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="taxidriverId">taxidriverid</label>
+                <input type="number" name="taxidriverId" id="taxidriverId" step="0.01"
+                    value="<% if (editing) { %><%= product.tripdurationtime %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="customerid">customerid</label>
+                <input type="number" name="customerId" id="customerId" step="0.01"
+                    value="<% if (editing) { %><%= product.tripdurationtime %><% } %>">
+            </div>
+            <% if (editing) { %>
+            <input type="hidden" value="<%= product.id %>" name="productId">
+            <% } %>
+
+            <button class="btn" type="submit"><%  { %>Add
+                transition<% } %></button>
+        </form>
+    </main>
+    <%- include('../includes/end.ejs') %>

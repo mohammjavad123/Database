@@ -1,0 +1,47 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/navigation.ejs') %>
+
+    <main>
+        <form class="product-form" action="/edittaxidriver" method="POST">
+            <div class="form-control">
+                <label for="firstname">firstname</label>
+                <input type="text" name="firstname" id="firstname" value="<% if (editing) { %><%= product.firstname %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="lastname">lastname</label>
+                <input type="text" name="lastname" id="lastname" step="0.01" value="<% if (editing) { %><%= product.lastname %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
+            </div>
+            
+            <div class="form-control">
+                <label for="email">email</label>
+                <input type="text" name="email" id="lastname" step="0.01" value="<% if (editing) { %><%= product.email %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="phonenumber">phonenumber</label>
+                <input type="number" name="phonenumber" id="phonenumber" step="0.01" value="<% if (editing) { %><%= product.phonenumber %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="plaknumber">plaknumber</label>
+                <input type="number" name="plaknumber" id="plaknumber" step="0.01" value="<% if (editing) { %><%= product.plaknumber %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="city">city</label>
+                <textarea name="city" id="city" rows="5"><% if (editing) { %><%= product.city %><% } %></textarea>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product.id %>" name="productId">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>Add Product<% } %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

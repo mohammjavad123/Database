@@ -1,0 +1,30 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cart.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <main>
+            <% if (products.length > 0) { %>
+                <ul class="cart__item-list">
+                    <% products.forEach(p => { %>
+                        <li class="cart__item">
+                            <span>stratlocation:<%= p.stratlocation %></span>
+                            <span>endlocation: <%= p.endlocation %></span>
+                            <span>city:<%= p.city %></span>
+                            <span>isdone: <%= p.isdone %></span>
+                            <span>price:<%= p.price %></span>
+                            <span>satisfynumber: <%= p.satisfynumber %></span>
+                            <span>tripdurationtime: <%= p.tripdurationtime %></span>
+
+                            <form action="/cart-delete-item" method="POST">
+                                <input type="hidden" value="<%= p.id %>" name="productId">
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <h1>No Products in Cart!</h1>
+            <% } %>
+        </main>
+        <%- include('../includes/end.ejs') %>
